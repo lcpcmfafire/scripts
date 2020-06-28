@@ -47,12 +47,12 @@ function exibir_endereco_acesso(){
 
 clear
 
-local ip=$(hostname -I)
+local ip=$(hostname -I | cut -d ' ' -f1)
 echo "Para acessar você deve digitar no navegador:"
+echo ""
 echo "http://$ip:8787"
 
 }
-
 
 
 atualiza_repositorio
