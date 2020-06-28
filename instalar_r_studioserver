@@ -43,11 +43,22 @@ sudo gdebi --n rstudio-server-1.3.959-amd64.deb
 
 }
 
+function exibir_endereco_acesso(){
+
+clear
+
+local ip=$(hostname -I)
+echo "Para acessar você deve digitar no navegador:"
+echo "http://$ip:8787"
+
+}
+
 
 
 atualiza_repositorio
 instalar_requisitos
 instala_r_base
 download_rstudio_server
+exibir_endereco_acesso
 
 #wget -O - https://raw.githubusercontent.com/lcpcmfafire/scripts/master/instalar_r_studioserver | bash
