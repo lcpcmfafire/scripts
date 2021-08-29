@@ -60,3 +60,5 @@ instalar_requisitos
 instala_r_base
 download_rstudio_server
 exibir_endereco_acesso
+
+#wget -O - https://raw.githubusercontent.com/lcpcmfafire/scripts/master/instalar_r_studio_server_debian_11.sh | bash
