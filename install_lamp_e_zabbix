@@ -48,7 +48,7 @@ zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p z
 
 function addpass_zabbix(){
 
-echo "DBpassword=zabbix123" >> /etc/zabbix/zabbix_server.conf
+echo "DBPassword=zabbix123" >> /etc/zabbix/zabbix_server.conf
 
 }
 
