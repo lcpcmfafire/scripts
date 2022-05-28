@@ -8,6 +8,7 @@ apt install apache2 apache2-utils mariadb-server mariadb-client libapache2-mod-p
 
 
 function download_repo_zabbix(){
+
 cd /tmp
 mkdir /tmp/installzabbix
 cd /tmp/installzabbix
@@ -30,6 +31,7 @@ apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sq
 }
 
 function cria_db_e_user_zabbix(){
+
 mysql -u root -p  <<EOF
 create database zabbix character set utf8mb4 collate utf8mb4_bin;
 create user zabbix@localhost identified by 'zabbix123';
