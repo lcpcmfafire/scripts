@@ -42,7 +42,7 @@ EOF
 
 function descompacta_base_modelo_zabbix(){
 
-zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
+zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
 
 }
 
