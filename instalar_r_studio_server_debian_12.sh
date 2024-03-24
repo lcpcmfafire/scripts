@@ -39,7 +39,7 @@ cd /tmp
 
 wget wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.1-402-amd64.deb
 
-sudo gdebi rstudio-server-2023.12.1-402-amd64.deb
+sudo gdebi rstudio-server-2023.12.1-402-amd64.deb -y
 
 }
 
