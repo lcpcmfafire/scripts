@@ -18,7 +18,7 @@ function download_rstudio_server(){
 	
 cd /tmp
 
-wget wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.1-402-amd64.deb
+wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.1-402-amd64.deb
 
 gdebi --non-interactive rstudio-server-2023.12.1-402-amd64.deb
 
