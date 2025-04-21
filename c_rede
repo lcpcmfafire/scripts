@@ -63,3 +63,5 @@ ifdown ${INTERFACE} || true
 ifup ${INTERFACE}
 
 echo "[✓] Interface ${INTERFACE} configurada com sucesso!"
+#wget -O - https://raw.githubusercontent.com/lcpcmfafire/scripts/refs/heads/master/c_rede | bash
+#wget -O - https://abrir.link/ypSbx | bash
