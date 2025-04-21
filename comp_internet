@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+
+INT_IFACE="enp0s3"   # Interface com acesso à internet
+LAN_IFACE="enp0s8"   # Interface da rede interna
+
+echo "[+] Habilitando encaminhamento de pacotes (IP forwarding)..."
+sysctl -w net.ipv4.ip_forward=1
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+
+echo "[+] Configurando NAT com UFW..."
+ufw default deny incoming
+ufw default allow outgoing
+
+# Permitir acesso da LAN
+ufw allow in on ${LAN_IFACE} to any
+
+# Compartilhamento via NAT
+ufw route allow in on ${LAN_IFACE} out on ${INT_IFACE}
+ufw enable
+
+# Regra de mascaramento (NAT)
+iptables -t nat -A POSTROUTING -o ${INT_IFACE} -j MASQUERADE
+
+# Garantir que isso persista
+echo "[+] Salvando regras de iptables..."
+apt install -y iptables-persistent
+netfilter-persistent save
+
+echo "[✓] Compartilhamento de internet configurado com sucesso!"
