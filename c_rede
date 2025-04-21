@@ -26,9 +26,9 @@ INTERFACE=$(whiptail --title "Seleção de Interface" --menu "Escolha a interfac
 while true; do
     IP=$(whiptail --title "Endereço IP" --inputbox "Digite o IP fixo da interface (ex: 10.0.0.1):" 10 60 "10.0.0.1" 3>&1 1>&2 2>&3)
     NETMASK=$(whiptail --title "Máscara de Rede" --inputbox "Digite a máscara de rede (ex: 255.0.0.0):" 10 60 "255.0.0.0" 3>&1 1>&2 2>&3)
-    GATEWAY=$(whiptail --title "Gateway (opcional)" --inputbox "Digite o gateway (ou deixe em branco):" 10 60 "" 3>&1 1>&2 2>&3)
+    NETWORK=$(whiptail --title "A rede (opcional)" --inputbox "Digite o Endereço de rede (ex: 10.0.0.0 ou deixe em branco):" 10 60 "10.0.0.0" 3>&1 1>&2 2>&3)
 
-    CONFIG_PREVIEW="Interface: $INTERFACE\nIP: $IP\nMáscara: $NETMASK\nGateway: ${GATEWAY:-N/A}"
+    CONFIG_PREVIEW="Interface: $INTERFACE\nIP: $IP\nMáscara: $NETMASK\nRede: ${NETWORK:-N/A}"
     whiptail --title "Confirmação" --yesno "$CONFIG_PREVIEW\n\nDeseja aplicar essa configuração?" 15 60
 
     if [ $? -eq 0 ]; then
@@ -52,8 +52,8 @@ iface ${INTERFACE} inet static
     netmask ${NETMASK}
 EOF
 
-if [[ -n "$GATEWAY" ]]; then
-    echo "    gateway ${GATEWAY}" >> /etc/network/interfaces
+if [[ -n "$NETWORK" ]]; then
+    echo "    gateway ${NETWORK}" >> /etc/network/interfaces
 fi
 
 # Aplica a nova configuração
