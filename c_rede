@@ -53,7 +53,7 @@ iface ${INTERFACE} inet static
 EOF
 
 if [[ -n "$NETWORK" ]]; then
-    echo "    gateway ${NETWORK}" >> /etc/network/interfaces
+    echo "    network ${NETWORK}" >> /etc/network/interfaces
 fi
 
 # Aplica a nova configuração
